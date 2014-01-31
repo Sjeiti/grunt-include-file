@@ -1,0 +1,44 @@
+{
+	"name": "grunt-include-file",
+	"description": "Include files into other files, including base64 encoding.",
+	"version": "0.1.1",
+	"homepage": "https://github.com/Sjeiti/grunt-include-file",
+	"author": {
+		"name": "Ron Valstar",
+		"email": "sjeiti@gmail.com",
+		"url": "http://www.sjeiti.com/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Sjeiti/grunt-include-file.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Sjeiti/grunt-include-file/issues"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/Sjeiti/grunt-include-file/blob/master/LICENSE-MIT"
+		}
+	],
+	"main": "Gruntfile.js",
+	"engines": {
+		"node": ">= 0.8.0"
+	},
+	"scripts": {
+		"test": "grunt test"
+	},
+	"devDependencies": {
+		"grunt-contrib-jshint": "~0.6.0",
+		"grunt-contrib-clean": "~0.4.0",
+		"grunt-contrib-nodeunit": "~0.2.0",
+		"grunt": "~0.4.1",
+		"grunt-version-git": "~0.1.5"
+	},
+	"peerDependencies": {
+		"grunt": "~0.4.1"
+	},
+	"keywords": [
+		"gruntplugin"
+	]
+}
