@@ -10,7 +10,8 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Sjeiti/grunt-include-file.git"
+		"url": "https://github.com/St3Ko/grunt-include-file.git"
+
 	},
 	"bugs": {
 		"url": "https://github.com/Sjeiti/grunt-include-file/issues"
