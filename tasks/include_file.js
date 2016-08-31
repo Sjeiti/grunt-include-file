@@ -57,6 +57,8 @@ module.exports = function (grunt) {
 						}
 					} else {
 						grunt.log.error(new Array(depth+1).join(' │'),'└',sPath+sFile,' - file not found');
+						grunt.warn('');
+						return;
 					}
 				});
 			}
