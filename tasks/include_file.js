@@ -4,7 +4,7 @@
  *
  * Copyright (c) 2014 Ron Valstar
  * Licensed under the MIT license.
- * @version: 0.1.1
+ * @version: 0.1.3
  */
 'use strict';
 module.exports = function (grunt) {
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 			var sFileContents = fs.readFileSync(file).toString()
 				,aMatch = (sFileContents.match(rxMatchCommentJsG)||[]).concat(sFileContents.match(rxMatchCommentHtmlG)||[])
 			;
-			if (aMatch) {
+			if (aMatch&&aMatch.length) {
 				aMatch.forEach(function(include){
 					var aFile = (include.match(rxMatchCommentJs)||[]).concat(include.match(rxMatchCommentHtml)||[])
 						,sFile = aFile[aFile.length-1]
@@ -47,13 +47,13 @@ module.exports = function (grunt) {
 						iNumFiles++;
 						grunt.log.writeln(' ',new Array(depth+1).join(' │'),'└',sPath+sFile);
 						if (bEsc) {
-							sFileContents = sFileContents.replace(include,encodeURIComponent(includeInto(sPath+sFile,depth)).replace(/'/gi,'\\\'').replace(/"/gi,'\\\"'));
+							sFileContents = sFileContents.replace(include,encodeURIComponent(includeInto(sPath+sFile,depth).replace(/\$/g,'$$$$')).replace(/'/gi,'\\\'').replace(/"/gi,'\\\"'));
 						} else if (bBase64) {
 							sFileContents = sFileContents.replace(include,'background-image:url(data:image/png;base64,'+fs.readFileSync(sPath+sFile).toString('base64')+');');
 						} else if (bMaintainStrict) {
-							sFileContents = sFileContents.replace(include,includeInto(sPath+sFile,depth));
+							sFileContents = sFileContents.replace(include,includeInto(sPath+sFile,depth).replace(/\$/g,'$$$$'));
 						} else {
-							sFileContents = sFileContents.replace(include,includeInto(sPath+sFile,depth).replace('\'use strict\';',''));
+							sFileContents = sFileContents.replace(include,includeInto(sPath+sFile,depth).replace(/\$/g,'$$$$').replace('\'use strict\';',''));
 						}
 					} else {
 						grunt.log.error(new Array(depth+1).join(' │'),'└',sPath+sFile,' - file not found');

@@ -1,7 +1,7 @@
 {
 	"name": "grunt-include-file",
 	"description": "Include files into other files, including base64 encoding.",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"homepage": "https://github.com/Sjeiti/grunt-include-file",
 	"author": {
 		"name": "Ron Valstar",
